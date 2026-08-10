@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langgraph
+pymongo
+qdrant-client
+google-generativeai
+openai
+pydantic
+python-dotenv
+requests
