@@ -26,6 +26,7 @@ export const Auth: React.FC<AuthProps> = ({ onLoginSuccess, apiBase }) => {
       const response = await fetch(`${apiBase}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({ emailOrUsername, password }),
       });
 

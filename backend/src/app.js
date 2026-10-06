@@ -17,11 +17,15 @@ const PORT = process.env.PORT || 5000;
 // Connect to Database
 connectDB();
 
-// Middlewares
-app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+const corsOptions = {
+  origin: true, // Echo origin so any localhost/127.0.0.1 port works
   credentials: true,
-}));
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
